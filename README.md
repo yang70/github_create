@@ -3,7 +3,7 @@
 by [Matthew Yang](http://matthewgyang.com)
 
 ## Description
-GitHub Create is a ruby script that allows you to quickly create a remote repository on [github.com](https://github.com) and set it as the current project's `origin` all in one step from the command line.
+GitHub Create is a Ruby script that allows you to quickly create a remote repository on [github.com](https://github.com) and set it as the current project's `origin` all in one step from the command line.
 
 It utilizes the [GitHub API](https://developer.github.com/v3/) along with the [Ruby Net::HTTP library](http://ruby-doc.org/stdlib-2.2.3/libdoc/net/http/rdoc/Net/HTTP.html) and [JSON module](http://ruby-doc.org/stdlib-2.2.3/libdoc/json/rdoc/JSON.html).
 
@@ -41,7 +41,7 @@ name already exists on this account
 ### Create a new personal access token on GitHub
 In order to access the GitHub API, we need an access token.
 
-1. Sign in to your GitHub account.
+1. Sign in to your GitHub account
 2. Navigate to `Settings`
 3. On the left side menu, click on `Personal access tokens`
 4. Click on `Generate new token`
