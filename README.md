@@ -13,7 +13,7 @@ Once installed and configured, `cd` into your project's main directory and type:
 $ ghcreate
 ```
 
-This will create a GitHub repo with the same name as the current directory  Optionally, you can pass a different name as an argument if you want:
+This will create a GitHub repo with the same name as the current directory.  Optionally, you can pass a different name as an argument if you want:
 
 ```bash
 $ ghcreate my-new-repo
