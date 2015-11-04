@@ -6,7 +6,7 @@ new_repo_name = ARGV[0] || File.basename(Dir.getwd)
 
 api_key = ENV["GITHUB_API"]
 
-uri = URI.parse("https://api.github.com/user/repos?access_token=#{api_key}")
+uri = URI.parse("https://api.github.com/user/repos")
 
 https = Net::HTTP.new(uri.hostname, uri.port)
 https.use_ssl = true
@@ -31,5 +31,6 @@ if remote
     puts "Git initialized, GitHub repo '#{new_repo_name}' created! Remote origin set to #{remote}"
   end
 else
-  puts "Error:  #{info}"
+  puts "Error:  #{info['message']}"
+  info['errors'].each { |error| puts error['message'] }
 end
