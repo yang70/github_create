@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+require 'net/http'
+require 'json'
+
+new_repo_name = ARGV[0] || File.basename(Dir.getwd)
+
+api_key = ENV["GITHUB_API"]
+
+uri = URI.parse("https://api.github.com/user/repos?access_token=#{api_key}")
+
+https = Net::HTTP.new(uri.hostname, uri.port)
+https.use_ssl = true
+
+req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' => 'application/json'})
+req['Authorization'] = "token #{api_key}"
+req.body = { 'name' => new_repo_name }.to_json
+
+res = https.request(req)
+
+info = JSON.parse res.body
+
+remote = info['ssh_url']
+
+if remote
+  if system('git rev-parse')
+    `git remote add origin #{remote}`
+    puts "GitHub repo '#{new_repo_name}' created! Remote origin set to #{remote}"
+  else
+    `git init`
+    `git remote add origin #{remote}`
+    puts "Git initialized, GitHub repo '#{new_repo_name}' created! Remote origin set to #{remote}"
+  end
+else
+  puts "Error:  #{info}"
+end
