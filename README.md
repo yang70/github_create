@@ -72,3 +72,13 @@ remote = info['clone_url'] # changed from remote = info['ssh_url']
 
 # Thanks!
 Thanks for reading! Please [contact me](mailto:matt@matthewgyang.com) or open up a GitHub issue if you have any comments!
+
+## Credit
+[Net::HTTP with SSL](http://stackoverflow.com/a/11297962)
+
+[Get Current Working Directory](http://stackoverflow.com/a/3584323)
+
+[Grab README using GitHub API](https://developer.github.com/v3/repos/contents/)
+
+[Check if current directory has Git](http://stackoverflow.com/a/2044677)
+
